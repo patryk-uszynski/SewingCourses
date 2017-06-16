@@ -72,9 +72,14 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Classes.cs" />
     <Compile Include="Models\Course.cs" />
+    <Compile Include="Models\Location.cs" />
     <Compile Include="Models\NormalCourse.cs" />
+    <Compile Include="Models\Payment.cs" />
+    <Compile Include="Models\Person\Person.cs" />
     <Compile Include="Models\ProfessionalCourse.cs" />
+    <Compile Include="Models\Reservation.cs" />
     <Compile Include="Models\SemesterCourse.cs" />
+    <Compile Include="Models\Person\Student.cs" />
     <Compile Include="Persistence\SewingCoursesDbContext.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -22,6 +22,11 @@ namespace SewingCourses.Models
 
         public int MaxParticipantAge { get; set; }
 
-        public virtual ICollection<Classes> Classes { get; set; }   
+        public virtual ICollection<Classes> Classes { get; set; }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

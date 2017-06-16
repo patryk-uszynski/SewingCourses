@@ -20,9 +20,19 @@ namespace SewingCourses
             InitializeComponent();
             SewingCoursesDbContext context = new SewingCoursesDbContext();
             UpcomingCoursesListBox.ValueMember = "Name";
-            UpcomingCoursesListBox.DataSource = context.Courses.Include(c => c.Classes).Where(c => c.CourseId == 1).ToList();
+            UpcomingCoursesListBox.DataSource = context.Courses.Include(c => c.Classes).ToList();
+            UpcomingClassesDataGridView.AutoGenerateColumns = false;
 
-            UpcomingClassesDataGridView.DataSource = ((Course)UpcomingCoursesListBox.SelectedItem).Classes.ToList();
+            try
+            {
+                UpcomingClassesDataGridView.AutoGenerateColumns = false;
+                UpcomingClassesDataGridView.DataSource = ((Course)UpcomingCoursesListBox.SelectedItem).Classes.ToList();
+            }
+            catch (NullReferenceException)
+            {
+                // MessageBox.Show("Brak nadchodzących zajęć dla tego kursu");
+            }
+            
 
             context.Dispose();
         }
@@ -32,5 +42,9 @@ namespace SewingCourses
             Close();
         }
 
+        private void UpcomingCoursesListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpcomingClassesDataGridView.DataSource = ((Course)UpcomingCoursesListBox.SelectedItem).Classes.ToList();
+        }
     }
 }
