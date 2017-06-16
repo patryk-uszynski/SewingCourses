@@ -61,13 +61,31 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706152256203_Initial.cs" />
+    <Compile Include="Migrations\201706152256203_Initial.Designer.cs">
+      <DependentUpon>201706152256203_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706160016429_AddedClasess.cs" />
+    <Compile Include="Migrations\201706160016429_AddedClasess.Designer.cs">
+      <DependentUpon>201706160016429_AddedClasess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Classes.cs" />
     <Compile Include="Models\Course.cs" />
+    <Compile Include="Models\NormalCourse.cs" />
     <Compile Include="Models\ProfessionalCourse.cs" />
     <Compile Include="Models\SemesterCourse.cs" />
+    <Compile Include="Persistence\SewingCoursesDbContext.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706152256203_Initial.resx">
+      <DependentUpon>201706152256203_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706160016429_AddedClasess.resx">
+      <DependentUpon>201706160016429_AddedClasess.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

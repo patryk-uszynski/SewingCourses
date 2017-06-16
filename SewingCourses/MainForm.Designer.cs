@@ -36,7 +36,7 @@
             this.CoursesTabPage = new System.Windows.Forms.TabPage();
             this.UpcomingClassesSplitContainer = new System.Windows.Forms.SplitContainer();
             this.UpcomingCoursesListBox = new System.Windows.Forms.ListBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.UpcomingClassesDataGridView = new System.Windows.Forms.DataGridView();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.ClientsTabPage = new System.Windows.Forms.TabPage();
@@ -48,7 +48,7 @@
             this.UpcomingClassesSplitContainer.Panel1.SuspendLayout();
             this.UpcomingClassesSplitContainer.Panel2.SuspendLayout();
             this.UpcomingClassesSplitContainer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UpcomingClassesDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -125,7 +125,7 @@
             // 
             // UpcomingClassesSplitContainer.Panel2
             // 
-            this.UpcomingClassesSplitContainer.Panel2.Controls.Add(this.dataGridView1);
+            this.UpcomingClassesSplitContainer.Panel2.Controls.Add(this.UpcomingClassesDataGridView);
             this.UpcomingClassesSplitContainer.Size = new System.Drawing.Size(824, 490);
             this.UpcomingClassesSplitContainer.SplitterDistance = 274;
             this.UpcomingClassesSplitContainer.TabIndex = 0;
@@ -140,14 +140,14 @@
             this.UpcomingCoursesListBox.Size = new System.Drawing.Size(274, 490);
             this.UpcomingCoursesListBox.TabIndex = 0;
             // 
-            // dataGridView1
+            // UpcomingClassesDataGridView
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(546, 490);
-            this.dataGridView1.TabIndex = 0;
+            this.UpcomingClassesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.UpcomingClassesDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UpcomingClassesDataGridView.Location = new System.Drawing.Point(0, 0);
+            this.UpcomingClassesDataGridView.Name = "UpcomingClassesDataGridView";
+            this.UpcomingClassesDataGridView.Size = new System.Drawing.Size(546, 490);
+            this.UpcomingClassesDataGridView.TabIndex = 0;
             // 
             // flowLayoutPanel1
             // 
@@ -195,7 +195,7 @@
             this.UpcomingClassesSplitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.UpcomingClassesSplitContainer)).EndInit();
             this.UpcomingClassesSplitContainer.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UpcomingClassesDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -212,7 +212,7 @@
         private System.Windows.Forms.TabPage CoursesTabPage;
         private System.Windows.Forms.SplitContainer UpcomingClassesSplitContainer;
         private System.Windows.Forms.ListBox UpcomingCoursesListBox;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView UpcomingClassesDataGridView;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.TabPage ClientsTabPage;
