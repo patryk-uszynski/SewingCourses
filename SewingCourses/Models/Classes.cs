@@ -39,7 +39,7 @@ namespace SewingCourses.Models
 
         public int GetSpotsLeft()
         {
-            int totalSpots = Location.Capacity;
+            int totalSpots = this.Location.Capacity;
 
             return totalSpots - Students.Count();
         }

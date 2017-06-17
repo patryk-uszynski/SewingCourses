@@ -11,11 +11,15 @@ namespace SewingCourses
 {
     public partial class MainForm : Form
     {
+        private SewingCoursesDbContext context;
+
         public MainForm()
         {
             InitializeComponent();
             ConfigureControls();
-            ReloadData();
+
+            context = new SewingCoursesDbContext();
+            ReloadData();            
 
             // Subskrypcja eventu zmiany danych
             DataEvents.DataChanged += (s, e) => ReloadData();
@@ -30,7 +34,6 @@ namespace SewingCourses
 
         public void ReloadData()
         {
-            SewingCoursesDbContext context = new SewingCoursesDbContext();
             context.Configuration.LazyLoadingEnabled = true;
             context.Configuration.ProxyCreationEnabled = true;
 
@@ -44,7 +47,7 @@ namespace SewingCourses
                 // MessageBox.Show("Brak nadchodzących zajęć dla tego kursu");
             }
             CoursesDataGridView.DataSource = context.Courses.ToList();
-            //context.Dispose();
+            StudentsDataGridView.DataSource = context.Persons.OfType<Student>().ToList();
         }
 
         private void CloseToolStripMenuItem_Click(object sender, EventArgs e)
@@ -73,8 +76,7 @@ namespace SewingCourses
 
             if (selectedCourse == null) return;
 
-            using (SewingCoursesDbContext context = new SewingCoursesDbContext())
-            {
+            
                 context.Courses.Attach(selectedCourse);
                 var entry = context.Entry(selectedCourse);
                 entry.Property(c => c.Name).IsModified = true;
@@ -97,7 +99,7 @@ namespace SewingCourses
                     MessageBox.Show(message);
                 }
                 
-            }
+           
 
             DataEvents.RaiseDataChanged();
             //CoursesDataGridView[e.ColumnIndex, e.RowIndex].Value;
@@ -108,6 +110,36 @@ namespace SewingCourses
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void CoursesDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var senderGrid = (DataGridView)sender;
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
+            {
+                var selectedCourse = CoursesDataGridView.Rows[e.RowIndex].DataBoundItem as Course;
+                var form = new Forms.CourseManageForm(selectedCourse);
+                form.Show();
+            }
+        }
+
+        private void CoursesDataGridView_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                CoursesDataGridMenuStrip.Items[0].Enabled = true;
+
+                var hitTest = CoursesDataGridView.HitTest(e.X, e.Y);
+                CoursesDataGridView.ClearSelection();
+                if (hitTest.RowIndex >= 0)
+                {
+                    CoursesDataGridView.Rows[hitTest.RowIndex].Selected = true;
+                }
+                else
+                {
+                    CoursesDataGridMenuStrip.Items[0].Enabled = false;
+                }
+            }
         }
     }
 }
