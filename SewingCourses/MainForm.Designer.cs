@@ -138,7 +138,7 @@
             this.UpcomingClassesTabPage.Location = new System.Drawing.Point(4, 32);
             this.UpcomingClassesTabPage.Name = "UpcomingClassesTabPage";
             this.UpcomingClassesTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.UpcomingClassesTabPage.Size = new System.Drawing.Size(830, 496);
+            this.UpcomingClassesTabPage.Size = new System.Drawing.Size(876, 502);
             this.UpcomingClassesTabPage.TabIndex = 0;
             this.UpcomingClassesTabPage.Text = "Nadchodzące zajęcia";
             this.UpcomingClassesTabPage.UseVisualStyleBackColor = true;
@@ -157,8 +157,8 @@
             // UpcomingClassesSplitContainer.Panel2
             // 
             this.UpcomingClassesSplitContainer.Panel2.Controls.Add(this.UpcomingClassesDataGridView);
-            this.UpcomingClassesSplitContainer.Size = new System.Drawing.Size(824, 490);
-            this.UpcomingClassesSplitContainer.SplitterDistance = 274;
+            this.UpcomingClassesSplitContainer.Size = new System.Drawing.Size(870, 496);
+            this.UpcomingClassesSplitContainer.SplitterDistance = 289;
             this.UpcomingClassesSplitContainer.TabIndex = 0;
             // 
             // UpcomingCoursesListBox
@@ -170,7 +170,7 @@
             this.UpcomingCoursesListBox.ItemHeight = 16;
             this.UpcomingCoursesListBox.Location = new System.Drawing.Point(0, 28);
             this.UpcomingCoursesListBox.Name = "UpcomingCoursesListBox";
-            this.UpcomingCoursesListBox.Size = new System.Drawing.Size(274, 462);
+            this.UpcomingCoursesListBox.Size = new System.Drawing.Size(289, 468);
             this.UpcomingCoursesListBox.TabIndex = 0;
             this.UpcomingCoursesListBox.SelectedIndexChanged += new System.EventHandler(this.UpcomingCoursesListBox_SelectedIndexChanged);
             // 
@@ -201,7 +201,7 @@
             this.UpcomingClassesDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.UpcomingClassesDataGridView.Location = new System.Drawing.Point(0, 0);
             this.UpcomingClassesDataGridView.Name = "UpcomingClassesDataGridView";
-            this.UpcomingClassesDataGridView.Size = new System.Drawing.Size(546, 490);
+            this.UpcomingClassesDataGridView.Size = new System.Drawing.Size(577, 496);
             this.UpcomingClassesDataGridView.TabIndex = 0;
             // 
             // ClassesId
@@ -262,7 +262,7 @@
             this.CoursesTabPage.Location = new System.Drawing.Point(4, 32);
             this.CoursesTabPage.Name = "CoursesTabPage";
             this.CoursesTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.CoursesTabPage.Size = new System.Drawing.Size(830, 496);
+            this.CoursesTabPage.Size = new System.Drawing.Size(876, 502);
             this.CoursesTabPage.TabIndex = 1;
             this.CoursesTabPage.Text = "Kursy";
             this.CoursesTabPage.UseVisualStyleBackColor = true;
@@ -281,7 +281,7 @@
             this.CoursesDataGridView.Name = "CoursesDataGridView";
             this.CoursesDataGridView.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(3);
             this.CoursesDataGridView.RowTemplate.Height = 30;
-            this.CoursesDataGridView.Size = new System.Drawing.Size(824, 390);
+            this.CoursesDataGridView.Size = new System.Drawing.Size(870, 396);
             this.CoursesDataGridView.TabIndex = 1;
             this.CoursesDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CoursesDataGridView_CellContentClick);
             this.CoursesDataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.CoursesDataGridView_CellEndEdit);
@@ -327,16 +327,16 @@
             this.flowLayoutPanel1.Controls.Add(this.AddCourseButton);
             this.flowLayoutPanel1.Controls.Add(this.InfoLabel1);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 393);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 399);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 25, 10, 0);
             this.flowLayoutPanel1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(824, 100);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(870, 100);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // AddCourseButton
             // 
-            this.AddCourseButton.Location = new System.Drawing.Point(649, 28);
+            this.AddCourseButton.Location = new System.Drawing.Point(695, 28);
             this.AddCourseButton.Name = "AddCourseButton";
             this.AddCourseButton.Size = new System.Drawing.Size(162, 49);
             this.AddCourseButton.TabIndex = 0;
@@ -372,13 +372,13 @@
             // InfoLabel1
             // 
             this.InfoLabel1.AutoSize = true;
-            this.InfoLabel1.Location = new System.Drawing.Point(215, 25);
+            this.InfoLabel1.Location = new System.Drawing.Point(268, 25);
             this.InfoLabel1.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.InfoLabel1.Name = "InfoLabel1";
             this.InfoLabel1.Padding = new System.Windows.Forms.Padding(0, 20, 50, 0);
-            this.InfoLabel1.Size = new System.Drawing.Size(428, 33);
+            this.InfoLabel1.Size = new System.Drawing.Size(421, 33);
             this.InfoLabel1.TabIndex = 1;
-            this.InfoLabel1.Text = "Usuwanie kursów jest możliwe po kliknięciu na niego prawm przyciskiem myszy";
+            this.InfoLabel1.Text = "Usuwanie kursów jest możliwe po kliknięciu na nie prawym przyciskiem myszy";
             // 
             // FirstName
             // 

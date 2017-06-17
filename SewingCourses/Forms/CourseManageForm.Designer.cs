@@ -39,7 +39,6 @@
             this.EndDateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Location = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SpotsCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ReservationCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CourseClassesdataGridView)).BeginInit();
@@ -80,8 +79,7 @@
             this.StartDateTime,
             this.EndDateTime,
             this.Location,
-            this.SpotsCount,
-            this.ReservationCount});
+            this.SpotsCount});
             this.CourseClassesdataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CourseClassesdataGridView.Location = new System.Drawing.Point(0, 100);
             this.CourseClassesdataGridView.Name = "CourseClassesdataGridView";
@@ -97,6 +95,7 @@
             this.AddClassesButton.TabIndex = 0;
             this.AddClassesButton.Text = "Dodaj zajęcia";
             this.AddClassesButton.UseVisualStyleBackColor = true;
+            this.AddClassesButton.Click += new System.EventHandler(this.AddClassesButton_Click);
             // 
             // CourseNameDescLabel
             // 
@@ -156,15 +155,10 @@
             // 
             // SpotsCount
             // 
-            this.SpotsCount.HeaderText = "Ilość miejsc";
+            this.SpotsCount.DataPropertyName = "FreeSpots";
+            this.SpotsCount.HeaderText = "Ilość wolnych miejsc";
             this.SpotsCount.Name = "SpotsCount";
             this.SpotsCount.ReadOnly = true;
-            // 
-            // ReservationCount
-            // 
-            this.ReservationCount.HeaderText = "Ilość rezerwacji";
-            this.ReservationCount.Name = "ReservationCount";
-            this.ReservationCount.ReadOnly = true;
             // 
             // CourseManageForm
             // 
@@ -198,6 +192,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn EndDateTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn Location;
         private System.Windows.Forms.DataGridViewTextBoxColumn SpotsCount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ReservationCount;
     }
 }

@@ -81,33 +81,29 @@ namespace SewingCourses
             if (selectedCourse == null) return;
 
             
-                context.Courses.Attach(selectedCourse);
-                var entry = context.Entry(selectedCourse);
-                entry.Property(c => c.Name).IsModified = true;
+            context.Courses.Attach(selectedCourse);
+            var entry = context.Entry(selectedCourse);
+            entry.Property(c => c.Name).IsModified = true;
 
-                try
+            try
+            {
+                context.SaveChanges();
+            }
+            catch (DbEntityValidationException)
+            {
+                string message = "";
+                foreach (var validationResult in context.GetValidationErrors())
                 {
-                    context.SaveChanges();
-                }
-                catch (DbEntityValidationException)
-                {
-                    string message = "";
-                    foreach (var validationResult in context.GetValidationErrors())
+                    foreach (var error in validationResult.ValidationErrors)
                     {
-                        foreach (var error in validationResult.ValidationErrors)
-                        {
-                            message += error.ErrorMessage + "\n";
-                        }
-                        
+                        message += error.ErrorMessage + "\n";
                     }
-                    MessageBox.Show(message);
+                        
                 }
-                
-           
+                MessageBox.Show(message);
+            }
 
             DataEvents.RaiseDataChanged();
-            //CoursesDataGridView[e.ColumnIndex, e.RowIndex].Value;
-
         }
 
         // Delete item from CoursesDataGridView

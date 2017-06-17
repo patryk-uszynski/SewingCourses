@@ -40,8 +40,8 @@ namespace SewingCourses.Models
         public int GetSpotsLeft()
         {
             int totalSpots = this.Location.Capacity;
-
-            return totalSpots - Students.Count();
+            int takenSpots = Students != null ? Students.Count() : 0;
+            return totalSpots - takenSpots;
         }
 
         public bool HasFreeSpots()

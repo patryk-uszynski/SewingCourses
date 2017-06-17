@@ -21,5 +21,7 @@ namespace SewingCourses.Models
         [Required]
         [MaxLength(50)]
         public string LastName { get; set; }
+
+        public virtual string FullName { get { return FirstName + " " + LastName; } }
     }
 }
