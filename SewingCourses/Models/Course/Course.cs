@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SewingCourses.Models
 {
-    abstract class Course
+    public abstract class Course
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

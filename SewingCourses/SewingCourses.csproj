@@ -80,14 +80,20 @@
     <Compile Include="Migrations\201706170121083_Update.Designer.cs">
       <DependentUpon>201706170121083_Update.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706171556469_ClassesUpdated.cs" />
+    <Compile Include="Migrations\201706171556469_ClassesUpdated.Designer.cs">
+      <DependentUpon>201706171556469_ClassesUpdated.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Classes.cs" />
     <Compile Include="Models\Course\Course.cs" />
     <Compile Include="Models\Location.cs" />
     <Compile Include="Models\Course\NormalCourse.cs" />
     <Compile Include="Models\Payment.cs" />
+    <Compile Include="Models\Person\CareTaker.cs" />
     <Compile Include="Models\Person\Person.cs" />
     <Compile Include="Models\Course\ProfessionalCourse.cs" />
+    <Compile Include="Models\Person\Teacher.cs" />
     <Compile Include="Models\Reservation.cs" />
     <Compile Include="Models\Course\SemesterCourse.cs" />
     <Compile Include="Models\Person\Student.cs" />
@@ -108,6 +114,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706170121083_Update.resx">
       <DependentUpon>201706170121083_Update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706171556469_ClassesUpdated.resx">
+      <DependentUpon>201706171556469_ClassesUpdated.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace SewingCourses.Models
 {
     [Table("SemesterCourses")]
-    class SemesterCourse : Course
+    public class SemesterCourse : Course
     {
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]

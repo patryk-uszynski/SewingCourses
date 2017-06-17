@@ -40,20 +40,22 @@
             this.UpcomingCoursesListBox = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.UpcomingClassesDataGridView = new System.Windows.Forms.DataGridView();
+            this.CoursesTabPage = new System.Windows.Forms.TabPage();
+            this.CoursesDataGridView = new System.Windows.Forms.DataGridView();
+            this.CourseNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CoursesDataGridMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.AddCourseButton = new System.Windows.Forms.Button();
+            this.ClientsTabPage = new System.Windows.Forms.TabPage();
             this.ClassesId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Course = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StartDateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EndDateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FreeSpots = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CourseId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CoursesTabPage = new System.Windows.Forms.TabPage();
-            this.CoursesDataGridView = new System.Windows.Forms.DataGridView();
-            this.CoursesDataGridMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.AddCourseButton = new System.Windows.Forms.Button();
-            this.ClientsTabPage = new System.Windows.Forms.TabPage();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.CourseNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TeacherName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MainMenuStrip.SuspendLayout();
             this.MainTabControl.SuspendLayout();
             this.UpcomingClassesTabPage.SuspendLayout();
@@ -90,7 +92,7 @@
             // CloseToolStripMenuItem
             // 
             this.CloseToolStripMenuItem.Name = "CloseToolStripMenuItem";
-            this.CloseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.CloseToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.CloseToolStripMenuItem.Text = "Zakończ";
             this.CloseToolStripMenuItem.Click += new System.EventHandler(this.CloseToolStripMenuItem_Click);
             // 
@@ -185,49 +187,14 @@
             this.Course,
             this.StartDateTime,
             this.EndDateTime,
-            this.CourseId});
+            this.FreeSpots,
+            this.CourseId,
+            this.TeacherName});
             this.UpcomingClassesDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.UpcomingClassesDataGridView.Location = new System.Drawing.Point(0, 0);
             this.UpcomingClassesDataGridView.Name = "UpcomingClassesDataGridView";
             this.UpcomingClassesDataGridView.Size = new System.Drawing.Size(546, 490);
             this.UpcomingClassesDataGridView.TabIndex = 0;
-            // 
-            // ClassesId
-            // 
-            this.ClassesId.DataPropertyName = "ClassesId";
-            this.ClassesId.HeaderText = "ID";
-            this.ClassesId.Name = "ClassesId";
-            this.ClassesId.ReadOnly = true;
-            this.ClassesId.Visible = false;
-            // 
-            // Course
-            // 
-            this.Course.DataPropertyName = "Course";
-            this.Course.HeaderText = "Kurs";
-            this.Course.Name = "Course";
-            this.Course.ReadOnly = true;
-            // 
-            // StartDateTime
-            // 
-            this.StartDateTime.DataPropertyName = "StartDateTime";
-            this.StartDateTime.HeaderText = "Data rozpoczęcia";
-            this.StartDateTime.Name = "StartDateTime";
-            this.StartDateTime.ReadOnly = true;
-            // 
-            // EndDateTime
-            // 
-            this.EndDateTime.DataPropertyName = "EndDateTime";
-            this.EndDateTime.HeaderText = "Data zakończenia";
-            this.EndDateTime.Name = "EndDateTime";
-            this.EndDateTime.ReadOnly = true;
-            // 
-            // CourseId
-            // 
-            this.CourseId.DataPropertyName = "CourseId";
-            this.CourseId.HeaderText = "ID kursu";
-            this.CourseId.Name = "CourseId";
-            this.CourseId.ReadOnly = true;
-            this.CourseId.Visible = false;
             // 
             // CoursesTabPage
             // 
@@ -256,12 +223,32 @@
             this.CoursesDataGridView.TabIndex = 1;
             this.CoursesDataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.CoursesDataGridView_CellEndEdit);
             // 
+            // CourseNameColumn
+            // 
+            this.CourseNameColumn.DataPropertyName = "Name";
+            this.CourseNameColumn.HeaderText = "Nazwa";
+            this.CourseNameColumn.Name = "CourseNameColumn";
+            // 
+            // Type
+            // 
+            this.Type.DataPropertyName = "Type";
+            this.Type.HeaderText = "Typ";
+            this.Type.Name = "Type";
+            this.Type.ReadOnly = true;
+            // 
             // CoursesDataGridMenuStrip
             // 
             this.CoursesDataGridMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1});
             this.CoursesDataGridMenuStrip.Name = "contextMenuStrip1";
             this.CoursesDataGridMenuStrip.Size = new System.Drawing.Size(102, 26);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(101, 22);
+            this.toolStripMenuItem1.Text = "Usuń";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // flowLayoutPanel1
             // 
@@ -294,25 +281,56 @@
             this.ClientsTabPage.Text = "Klienci";
             this.ClientsTabPage.UseVisualStyleBackColor = true;
             // 
-            // toolStripMenuItem1
+            // ClassesId
             // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(101, 22);
-            this.toolStripMenuItem1.Text = "Usuń";
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            this.ClassesId.DataPropertyName = "ClassesId";
+            this.ClassesId.HeaderText = "ID";
+            this.ClassesId.Name = "ClassesId";
+            this.ClassesId.ReadOnly = true;
+            this.ClassesId.Visible = false;
             // 
-            // CourseNameColumn
+            // Course
             // 
-            this.CourseNameColumn.DataPropertyName = "Name";
-            this.CourseNameColumn.HeaderText = "Nazwa";
-            this.CourseNameColumn.Name = "CourseNameColumn";
+            this.Course.DataPropertyName = "Course";
+            this.Course.HeaderText = "Kurs";
+            this.Course.Name = "Course";
+            this.Course.ReadOnly = true;
             // 
-            // Type
+            // StartDateTime
             // 
-            this.Type.DataPropertyName = "Type";
-            this.Type.HeaderText = "Typ";
-            this.Type.Name = "Type";
-            this.Type.ReadOnly = true;
+            this.StartDateTime.DataPropertyName = "StartDateTime";
+            this.StartDateTime.HeaderText = "Data rozpoczęcia";
+            this.StartDateTime.Name = "StartDateTime";
+            this.StartDateTime.ReadOnly = true;
+            // 
+            // EndDateTime
+            // 
+            this.EndDateTime.DataPropertyName = "EndDateTime";
+            this.EndDateTime.HeaderText = "Data zakończenia";
+            this.EndDateTime.Name = "EndDateTime";
+            this.EndDateTime.ReadOnly = true;
+            // 
+            // FreeSpots
+            // 
+            this.FreeSpots.DataPropertyName = "FreeSpots";
+            this.FreeSpots.HeaderText = "Wolne miejsca";
+            this.FreeSpots.Name = "FreeSpots";
+            this.FreeSpots.ReadOnly = true;
+            // 
+            // CourseId
+            // 
+            this.CourseId.DataPropertyName = "CourseId";
+            this.CourseId.HeaderText = "ID kursu";
+            this.CourseId.Name = "CourseId";
+            this.CourseId.ReadOnly = true;
+            this.CourseId.Visible = false;
+            // 
+            // TeacherName
+            // 
+            this.TeacherName.DataPropertyName = "TeacherName";
+            this.TeacherName.HeaderText = "Prowadzący";
+            this.TeacherName.Name = "TeacherName";
+            this.TeacherName.ReadOnly = true;
             // 
             // MainForm
             // 
@@ -358,11 +376,6 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.TabPage ClientsTabPage;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ClassesId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Course;
-        private System.Windows.Forms.DataGridViewTextBoxColumn StartDateTime;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EndDateTime;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CourseId;
         private System.Windows.Forms.Button AddCourseButton;
         private System.Windows.Forms.ToolStripMenuItem kursToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem stwórzNowyKursToolStripMenuItem;
@@ -370,6 +383,13 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.DataGridViewTextBoxColumn CourseNameColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Type;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ClassesId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Course;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StartDateTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EndDateTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FreeSpots;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CourseId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TeacherName;
     }
 }
 

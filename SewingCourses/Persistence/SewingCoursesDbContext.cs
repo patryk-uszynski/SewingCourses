@@ -12,6 +12,14 @@ namespace SewingCourses.Persistence
     {
         public DbSet<Course> Courses { get; set; }
 
+        public DbSet<Person> Persons { get; set; }
+
         public DbSet<Classes> Classes { get; set; }
+
+        public DbSet<Location> Locations { get; set; }
+
+        public DbSet<Payment> Payments { get; set; }
+
+        public DbSet<Reservation> Reservations { get; set; }
     }
 }

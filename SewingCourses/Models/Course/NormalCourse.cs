@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace SewingCourses.Models
 {
     [Table("NormalCourses")]
-    class NormalCourse : Course
+    public class NormalCourse : Course
     {
 
     }

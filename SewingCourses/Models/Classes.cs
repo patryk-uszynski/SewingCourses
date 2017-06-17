@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SewingCourses.Models
 {
-    class Classes
+    public class Classes
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -20,9 +20,46 @@ namespace SewingCourses.Models
         [DataType(DataType.Date)]
         public DateTime EndDateTime { get; set; }
 
-        public int CourseId { get; set; }
+        public virtual int FreeSpots { get { return GetSpotsLeft(); } }
 
-        [ForeignKey("CourseId")]
+        [ForeignKey("Course")]
+        public int CourseId { get; set; }
         public virtual Course Course { get; set; }
+
+        [ForeignKey("Location")]
+        public int LocationId { get; set; }
+        public virtual Location Location { get; set; }
+
+        [ForeignKey("Teacher")]
+        public int TeacherId { get; set; }
+        public virtual Teacher Teacher { get; set; }
+        public virtual string TeacherName { get { return Teacher.FirstName + " " + Teacher.LastName; } }
+
+        public virtual ICollection<Student> Students { get; set; }
+
+        public int GetSpotsLeft()
+        {
+            int totalSpots = Location.Capacity;
+
+            return totalSpots - Students.Count();
+        }
+
+        public bool HasFreeSpots()
+        {
+            return GetSpotsLeft() > 0;
+        }
+
+        public string generateAttendanceList()
+        {
+            String attendanceList = Course.Name + "\n";
+
+            foreach (var student in Students)
+            {
+                attendanceList += "[ ] " + student.FirstName + " " + student.LastName;
+            }
+
+            return attendanceList;
+        }
     }
+
 }

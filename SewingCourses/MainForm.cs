@@ -31,10 +31,12 @@ namespace SewingCourses
         public void ReloadData()
         {
             SewingCoursesDbContext context = new SewingCoursesDbContext();
-            UpcomingCoursesListBox.DataSource = context.Courses.Include(c => c.Classes).ToList();
+            context.Configuration.LazyLoadingEnabled = true;
+            context.Configuration.ProxyCreationEnabled = true;
+
+            UpcomingCoursesListBox.DataSource = context.Courses.ToList();
             try
             {
-
                 UpcomingClassesDataGridView.DataSource = ((Course)UpcomingCoursesListBox.SelectedItem).Classes.ToList();
             }
             catch (NullReferenceException)
@@ -42,7 +44,7 @@ namespace SewingCourses
                 // MessageBox.Show("Brak nadchodzących zajęć dla tego kursu");
             }
             CoursesDataGridView.DataSource = context.Courses.ToList();
-            context.Dispose();
+            //context.Dispose();
         }
 
         private void CloseToolStripMenuItem_Click(object sender, EventArgs e)
@@ -67,12 +69,14 @@ namespace SewingCourses
 
         private void CoursesDataGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            Course updatedCourse = CoursesDataGridView.Rows[e.RowIndex].DataBoundItem as Course;
+            var selectedCourse = CoursesDataGridView.Rows[e.RowIndex].DataBoundItem as Course;
+
+            if (selectedCourse == null) return;
 
             using (SewingCoursesDbContext context = new SewingCoursesDbContext())
             {
-                context.Courses.Attach(updatedCourse);
-                var entry = context.Entry(updatedCourse);
+                context.Courses.Attach(selectedCourse);
+                var entry = context.Entry(selectedCourse);
                 entry.Property(c => c.Name).IsModified = true;
 
                 try
