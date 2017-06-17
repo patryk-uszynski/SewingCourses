@@ -14,12 +14,20 @@ namespace SewingCourses.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int LocationId { get; set; }
 
+        [Required]
         public string Name { get; set; }
 
+        [Required]
         public string Address { get; set; }
 
+        [Required]
         public int Capacity { get; set; }
 
         public virtual IList<Classes> Classes { get; set; }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

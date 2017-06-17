@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SewingCourses.Persistence
 {
-    class SewingCoursesDbContext : DbContext
+    public class SewingCoursesDbContext : DbContext
     {
         public DbSet<Course> Courses { get; set; }
 

@@ -59,6 +59,9 @@
             this.ClientsTabPage = new System.Windows.Forms.TabPage();
             this.StudentsDataGridView = new System.Windows.Forms.DataGridView();
             this.InfoLabel1 = new System.Windows.Forms.Label();
+            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BirthDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MainMenuStrip.SuspendLayout();
             this.MainTabControl.SuspendLayout();
             this.UpcomingClassesTabPage.SuspendLayout();
@@ -82,7 +85,7 @@
             this.kursToolStripMenuItem});
             this.MainMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.MainMenuStrip.Name = "MainMenuStrip";
-            this.MainMenuStrip.Size = new System.Drawing.Size(838, 24);
+            this.MainMenuStrip.Size = new System.Drawing.Size(884, 24);
             this.MainMenuStrip.TabIndex = 0;
             this.MainMenuStrip.Text = "menuStrip1";
             // 
@@ -126,7 +129,7 @@
             this.MainTabControl.Name = "MainTabControl";
             this.MainTabControl.Padding = new System.Drawing.Point(20, 8);
             this.MainTabControl.SelectedIndex = 0;
-            this.MainTabControl.Size = new System.Drawing.Size(838, 532);
+            this.MainTabControl.Size = new System.Drawing.Size(884, 538);
             this.MainTabControl.TabIndex = 1;
             // 
             // UpcomingClassesTabPage
@@ -347,18 +350,23 @@
             this.ClientsTabPage.Location = new System.Drawing.Point(4, 32);
             this.ClientsTabPage.Name = "ClientsTabPage";
             this.ClientsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.ClientsTabPage.Size = new System.Drawing.Size(830, 496);
+            this.ClientsTabPage.Size = new System.Drawing.Size(876, 502);
             this.ClientsTabPage.TabIndex = 2;
             this.ClientsTabPage.Text = "Klienci";
             this.ClientsTabPage.UseVisualStyleBackColor = true;
             // 
             // StudentsDataGridView
             // 
+            this.StudentsDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.StudentsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.StudentsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.FirstName,
+            this.LastName,
+            this.BirthDate});
             this.StudentsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.StudentsDataGridView.Location = new System.Drawing.Point(3, 3);
             this.StudentsDataGridView.Name = "StudentsDataGridView";
-            this.StudentsDataGridView.Size = new System.Drawing.Size(824, 490);
+            this.StudentsDataGridView.Size = new System.Drawing.Size(870, 496);
             this.StudentsDataGridView.TabIndex = 0;
             // 
             // InfoLabel1
@@ -372,13 +380,35 @@
             this.InfoLabel1.TabIndex = 1;
             this.InfoLabel1.Text = "Usuwanie kursów jest możliwe po kliknięciu na niego prawm przyciskiem myszy";
             // 
+            // FirstName
+            // 
+            this.FirstName.DataPropertyName = "FirstName";
+            this.FirstName.HeaderText = "Imię";
+            this.FirstName.Name = "FirstName";
+            this.FirstName.ReadOnly = true;
+            // 
+            // LastName
+            // 
+            this.LastName.DataPropertyName = "LastName";
+            this.LastName.HeaderText = "Nazwisko";
+            this.LastName.Name = "LastName";
+            this.LastName.ReadOnly = true;
+            // 
+            // BirthDate
+            // 
+            this.BirthDate.DataPropertyName = "BirthDate";
+            this.BirthDate.HeaderText = "Data urodzenia";
+            this.BirthDate.Name = "BirthDate";
+            this.BirthDate.ReadOnly = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(838, 556);
+            this.ClientSize = new System.Drawing.Size(884, 562);
             this.Controls.Add(this.MainTabControl);
             this.Controls.Add(this.MainMenuStrip);
+            this.MinimumSize = new System.Drawing.Size(900, 600);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kursy Szycia";
@@ -436,6 +466,9 @@
         private System.Windows.Forms.DataGridViewButtonColumn Actions;
         private System.Windows.Forms.DataGridView StudentsDataGridView;
         private System.Windows.Forms.Label InfoLabel1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BirthDate;
     }
 }
 

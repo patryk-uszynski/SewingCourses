@@ -14,16 +14,15 @@ namespace SewingCourses.Forms
 {
     public partial class CourseManageForm : Form
     {
-        public CourseManageForm(Course course)
+        private SewingCoursesDbContext context;
+
+        public CourseManageForm(SewingCoursesDbContext context, Course course)
         {
             InitializeComponent();
+            this.context = context;
             CourseNameLabel.Text = course.Name;
             CourseClassesdataGridView.AutoGenerateColumns = false;
-            using (var context = new SewingCoursesDbContext())
-            {
-                CourseClassesdataGridView.DataSource = context.Classes.Where(c => c.CourseId == course.CourseId).ToList();
-            }
-            
+            CourseClassesdataGridView.DataSource = context.Classes.Where(c => c.CourseId == course.CourseId).ToList();
         }
     }
 }

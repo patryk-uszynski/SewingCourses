@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using System.Data.Entity;
 using SewingCourses.Events;
 using System.Data.Entity.Validation;
+using SewingCourses.Forms;
 
 namespace SewingCourses
 {
@@ -30,6 +31,7 @@ namespace SewingCourses
             UpcomingCoursesListBox.ValueMember = "Name";
             UpcomingClassesDataGridView.AutoGenerateColumns = false;
             CoursesDataGridView.AutoGenerateColumns = false;
+            StudentsDataGridView.AutoGenerateColumns = false;
         }
 
         public void ReloadData()
@@ -62,12 +64,14 @@ namespace SewingCourses
 
         private void AddCourseButton_Click(object sender, EventArgs e)
         {
-            Models.Course.CreateCourse();
+            CourseAddingForm form = new CourseAddingForm(context);
+            form.Show();
         }
 
         private void stwórzNowyKursToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Models.Course.CreateCourse();
+            CourseAddingForm form = new CourseAddingForm(context);
+            form.Show();
         }
 
         private void CoursesDataGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -109,7 +113,17 @@ namespace SewingCourses
         // Delete item from CoursesDataGridView
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            
+            var course = CoursesDataGridView.SelectedRows[0].DataBoundItem as Course;
+
+            if(course.Classes.Count() > 0)
+            {
+                MessageBox.Show("Nie można usunąć kursu zawierającego zajęcia!");
+                return;
+            }
+
+            context.Courses.Remove(course);
+            context.SaveChanges();
+            DataEvents.RaiseDataChanged();
         }
 
         private void CoursesDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -118,7 +132,7 @@ namespace SewingCourses
             if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
             {
                 var selectedCourse = CoursesDataGridView.Rows[e.RowIndex].DataBoundItem as Course;
-                var form = new Forms.CourseManageForm(selectedCourse);
+                var form = new Forms.CourseManageForm(context, selectedCourse);
                 form.Show();
             }
         }

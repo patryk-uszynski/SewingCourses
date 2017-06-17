@@ -15,8 +15,11 @@ namespace SewingCourses.Forms
 {
     public partial class CourseAddingForm : Form
     {
-        public CourseAddingForm()
+        private SewingCoursesDbContext context;
+
+        public CourseAddingForm(SewingCoursesDbContext context)
         {
+            this.context = context;
             InitializeComponent();
         }
 
@@ -55,46 +58,70 @@ namespace SewingCourses.Forms
             Close();
         }
 
-        private void CreateCourseButton_Click(object sender, EventArgs e)
+        private Course CreateCourse()
         {
-            using (var context = new SewingCoursesDbContext())
+            int CourseId;
+
+            if (CoursePriceTextBox.Text.Equals(""))
             {
-                if (ProffesionalCourseRadioButton.Checked)
-                {
-                    ProfessionalCourse course = new ProfessionalCourse();
-                    course.Qualifications = QualificationTextBox.Text;
-                    course.Name = CourseNameTextBox.Text;
-                    course.Price = float.Parse(CoursePriceTextBox.Text);
-                    context.Courses.Add(course);
-                    context.SaveChanges();
-                }
-                else if (SemesterCourseRadioButton.Checked)
-                {
-                    SemesterCourse course = new SemesterCourse();
-                    course.StartDate = SemesterStartDateTimePicker.Value;
-                    course.EndDate = SemesterEndDateTimePicker.Value;
-                    course.Name = CourseNameTextBox.Text;
-                    course.Price = float.Parse(CoursePriceTextBox.Text);
-                    context.Courses.Add(course);
-                    context.SaveChanges();
-                }
-                else
-                {
-                    NormalCourse course = new NormalCourse();
-                    course.Name = CourseNameTextBox.Text;
-                    course.Price = float.Parse(CoursePriceTextBox.Text);
-                    context.Courses.Add(course);
-                    context.SaveChanges();
-                }
+                MessageBox.Show("Pole Cena nie może być puste");
+                return null;
             }
+            
+            if (ProffesionalCourseRadioButton.Checked)
+            {
+                ProfessionalCourse course = new ProfessionalCourse();
+                course.Qualifications = QualificationTextBox.Text;
+                course.Name = CourseNameTextBox.Text;
+                course.Price = float.Parse(CoursePriceTextBox.Text);
+                context.Courses.Add(course);
+                context.SaveChanges();
+
+                CourseId = course.CourseId;
+            }
+            else if (SemesterCourseRadioButton.Checked)
+            {
+                SemesterCourse course = new SemesterCourse();
+                course.StartDate = SemesterStartDateTimePicker.Value;
+                course.EndDate = SemesterEndDateTimePicker.Value;
+                course.Name = CourseNameTextBox.Text;
+                course.Price = float.Parse(CoursePriceTextBox.Text);
+                context.Courses.Add(course);
+                context.SaveChanges();
+
+                CourseId = course.CourseId;
+            }
+            else
+            {
+                NormalCourse course = new NormalCourse();
+                course.Name = CourseNameTextBox.Text;
+                course.Price = float.Parse(CoursePriceTextBox.Text);
+                context.Courses.Add(course);
+                context.SaveChanges();
+
+                CourseId = course.CourseId;
+            }
+            
 
             DataEvents.RaiseDataChanged();
             Close();
+
+            return context.Courses.Find(CourseId);
+        }
+
+        private void CreateCourseButton_Click(object sender, EventArgs e)
+        {
+            CreateCourse();
         }
 
         private void CreateCourseAndClassesButton_Click(object sender, EventArgs e)
         {
+            var course = CreateCourse();
 
+            if (course == null) return;
+
+            var form = new Forms.CourseManageForm(context, course);
+            form.Show();
         }
     }
 }

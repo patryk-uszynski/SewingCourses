@@ -39,8 +39,7 @@ namespace SewingCourses.Models
 
         public static void CreateCourse()
         {
-            CourseAddingForm form = new CourseAddingForm();
-            form.Show();
+            
         }
     }
 }

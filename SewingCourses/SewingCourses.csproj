@@ -90,6 +90,10 @@
     <Compile Include="Migrations\201706171556469_ClassesUpdated.Designer.cs">
       <DependentUpon>201706171556469_ClassesUpdated.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201706171949556_ClassesUpdated2.cs" />
+    <Compile Include="Migrations\201706171949556_ClassesUpdated2.Designer.cs">
+      <DependentUpon>201706171949556_ClassesUpdated2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Classes.cs" />
     <Compile Include="Models\Course\Course.cs" />
@@ -126,6 +130,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201706171556469_ClassesUpdated.resx">
       <DependentUpon>201706171556469_ClassesUpdated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706171949556_ClassesUpdated2.resx">
+      <DependentUpon>201706171949556_ClassesUpdated2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
