@@ -117,46 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="MainMenuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="CourseNameColumn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Type.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="CoursesDataGridMenuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>153, 17</value>
-  </metadata>
-  <metadata name="ClassesId.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Course.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="StartDateTime.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="EndDateTime.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="CourseId.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="ClassesId.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Course.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="StartDateTime.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="EndDateTime.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="CourseId.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
+  <data name="Target" xml:space="preserve">
+    <value>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</value>
+  </data>
+  <data name="DefaultSchema" xml:space="preserve">
+    <value>dbo</value>
+  </data>
 </root>

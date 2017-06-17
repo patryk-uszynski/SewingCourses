@@ -5,6 +5,7 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Data.Entity;
 using SewingCourses.Events;
+using System.Data.Entity.Validation;
 
 namespace SewingCourses
 {
@@ -13,14 +14,18 @@ namespace SewingCourses
         public MainForm()
         {
             InitializeComponent();
-            
+            ConfigureControls();
+            ReloadData();
+
+            // Subskrypcja eventu zmiany danych
+            DataEvents.DataChanged += (s, e) => ReloadData();
+        }
+
+        private void ConfigureControls()
+        {
             UpcomingCoursesListBox.ValueMember = "Name";
             UpcomingClassesDataGridView.AutoGenerateColumns = false;
             CoursesDataGridView.AutoGenerateColumns = false;
-
-            ReloadData();
-
-            DataEvents.DataChanged += (s, e) => ReloadData();
         }
 
         public void ReloadData()
@@ -58,6 +63,47 @@ namespace SewingCourses
         private void stwórzNowyKursToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Models.Course.CreateCourse();
+        }
+
+        private void CoursesDataGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            Course updatedCourse = CoursesDataGridView.Rows[e.RowIndex].DataBoundItem as Course;
+
+            using (SewingCoursesDbContext context = new SewingCoursesDbContext())
+            {
+                context.Courses.Attach(updatedCourse);
+                var entry = context.Entry(updatedCourse);
+                entry.Property(c => c.Name).IsModified = true;
+
+                try
+                {
+                    context.SaveChanges();
+                }
+                catch (DbEntityValidationException)
+                {
+                    string message = "";
+                    foreach (var validationResult in context.GetValidationErrors())
+                    {
+                        foreach (var error in validationResult.ValidationErrors)
+                        {
+                            message += error.ErrorMessage + "\n";
+                        }
+                        
+                    }
+                    MessageBox.Show(message);
+                }
+                
+            }
+
+            DataEvents.RaiseDataChanged();
+            //CoursesDataGridView[e.ColumnIndex, e.RowIndex].Value;
+
+        }
+
+        // Delete item from CoursesDataGridView
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

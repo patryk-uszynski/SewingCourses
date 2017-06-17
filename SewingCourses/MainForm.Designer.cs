@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.MainMenuStrip = new System.Windows.Forms.MenuStrip();
             this.FileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CloseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,11 +47,13 @@
             this.CourseId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CoursesTabPage = new System.Windows.Forms.TabPage();
             this.CoursesDataGridView = new System.Windows.Forms.DataGridView();
-            this.CourseNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CoursesDataGridMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.AddCourseButton = new System.Windows.Forms.Button();
             this.ClientsTabPage = new System.Windows.Forms.TabPage();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.CourseNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MainMenuStrip.SuspendLayout();
             this.MainTabControl.SuspendLayout();
             this.UpcomingClassesTabPage.SuspendLayout();
@@ -61,6 +64,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.UpcomingClassesDataGridView)).BeginInit();
             this.CoursesTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CoursesDataGridView)).BeginInit();
+            this.CoursesDataGridMenuStrip.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -86,7 +90,7 @@
             // CloseToolStripMenuItem
             // 
             this.CloseToolStripMenuItem.Name = "CloseToolStripMenuItem";
-            this.CloseToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.CloseToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.CloseToolStripMenuItem.Text = "Zakończ";
             this.CloseToolStripMenuItem.Click += new System.EventHandler(this.CloseToolStripMenuItem_Click);
             // 
@@ -244,25 +248,20 @@
             this.CoursesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CourseNameColumn,
             this.Type});
+            this.CoursesDataGridView.ContextMenuStrip = this.CoursesDataGridMenuStrip;
             this.CoursesDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CoursesDataGridView.Location = new System.Drawing.Point(3, 3);
             this.CoursesDataGridView.Name = "CoursesDataGridView";
             this.CoursesDataGridView.Size = new System.Drawing.Size(824, 390);
             this.CoursesDataGridView.TabIndex = 1;
+            this.CoursesDataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.CoursesDataGridView_CellEndEdit);
             // 
-            // CourseNameColumn
+            // CoursesDataGridMenuStrip
             // 
-            this.CourseNameColumn.DataPropertyName = "Name";
-            this.CourseNameColumn.HeaderText = "Nazwa";
-            this.CourseNameColumn.Name = "CourseNameColumn";
-            this.CourseNameColumn.ReadOnly = true;
-            // 
-            // Type
-            // 
-            this.Type.DataPropertyName = "Type";
-            this.Type.HeaderText = "Typ";
-            this.Type.Name = "Type";
-            this.Type.ReadOnly = true;
+            this.CoursesDataGridMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1});
+            this.CoursesDataGridMenuStrip.Name = "contextMenuStrip1";
+            this.CoursesDataGridMenuStrip.Size = new System.Drawing.Size(102, 26);
             // 
             // flowLayoutPanel1
             // 
@@ -295,6 +294,26 @@
             this.ClientsTabPage.Text = "Klienci";
             this.ClientsTabPage.UseVisualStyleBackColor = true;
             // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(101, 22);
+            this.toolStripMenuItem1.Text = "Usuń";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            // 
+            // CourseNameColumn
+            // 
+            this.CourseNameColumn.DataPropertyName = "Name";
+            this.CourseNameColumn.HeaderText = "Nazwa";
+            this.CourseNameColumn.Name = "CourseNameColumn";
+            // 
+            // Type
+            // 
+            this.Type.DataPropertyName = "Type";
+            this.Type.HeaderText = "Typ";
+            this.Type.Name = "Type";
+            this.Type.ReadOnly = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -317,6 +336,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.UpcomingClassesDataGridView)).EndInit();
             this.CoursesTabPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.CoursesDataGridView)).EndInit();
+            this.CoursesDataGridMenuStrip.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -346,6 +366,8 @@
         private System.Windows.Forms.Button AddCourseButton;
         private System.Windows.Forms.ToolStripMenuItem kursToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem stwórzNowyKursToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip CoursesDataGridMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.DataGridViewTextBoxColumn CourseNameColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Type;
     }
