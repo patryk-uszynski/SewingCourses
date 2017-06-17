@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SewingCourses.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -16,6 +17,10 @@ namespace SewingCourses.Models
 
         public string Name { get; set; }
 
+        public string Type { get {
+                return this is NormalCourse ? "Normalny" : this is ProfessionalCourse ? "Zawodowy" : "Semestralny";
+        }}
+
         public float Price { get; set; }
 
         public int MinParticipantAge { get; set; }
@@ -27,6 +32,12 @@ namespace SewingCourses.Models
         public override string ToString()
         {
             return Name;
+        }
+
+        public static void CreateCourse()
+        {
+            CourseAddingForm form = new CourseAddingForm();
+            form.Show();
         }
     }
 }

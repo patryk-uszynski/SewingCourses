@@ -55,6 +55,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Events\DataEvents.cs" />
+    <Compile Include="Forms\CourseAddingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CourseAddingForm.Designer.cs">
+      <DependentUpon>CourseAddingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,18 +78,21 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Classes.cs" />
-    <Compile Include="Models\Course.cs" />
+    <Compile Include="Models\Course\Course.cs" />
     <Compile Include="Models\Location.cs" />
-    <Compile Include="Models\NormalCourse.cs" />
+    <Compile Include="Models\Course\NormalCourse.cs" />
     <Compile Include="Models\Payment.cs" />
     <Compile Include="Models\Person\Person.cs" />
-    <Compile Include="Models\ProfessionalCourse.cs" />
+    <Compile Include="Models\Course\ProfessionalCourse.cs" />
     <Compile Include="Models\Reservation.cs" />
-    <Compile Include="Models\SemesterCourse.cs" />
+    <Compile Include="Models\Course\SemesterCourse.cs" />
     <Compile Include="Models\Person\Student.cs" />
     <Compile Include="Persistence\SewingCoursesDbContext.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\CourseAddingForm.resx">
+      <DependentUpon>CourseAddingForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>

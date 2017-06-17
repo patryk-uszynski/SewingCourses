@@ -31,22 +31,26 @@
             this.MainMenuStrip = new System.Windows.Forms.MenuStrip();
             this.FileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CloseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kursToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stwórzNowyKursToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainTabControl = new System.Windows.Forms.TabControl();
             this.UpcomingClassesTabPage = new System.Windows.Forms.TabPage();
             this.UpcomingClassesSplitContainer = new System.Windows.Forms.SplitContainer();
             this.UpcomingCoursesListBox = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.UpcomingClassesDataGridView = new System.Windows.Forms.DataGridView();
-            this.CoursesTabPage = new System.Windows.Forms.TabPage();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.ClientsTabPage = new System.Windows.Forms.TabPage();
             this.ClassesId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Course = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StartDateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EndDateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CourseId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CoursesTabPage = new System.Windows.Forms.TabPage();
+            this.CoursesDataGridView = new System.Windows.Forms.DataGridView();
+            this.CourseNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.AddCourseButton = new System.Windows.Forms.Button();
+            this.ClientsTabPage = new System.Windows.Forms.TabPage();
             this.MainMenuStrip.SuspendLayout();
             this.MainTabControl.SuspendLayout();
             this.UpcomingClassesTabPage.SuspendLayout();
@@ -56,14 +60,15 @@
             this.UpcomingClassesSplitContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UpcomingClassesDataGridView)).BeginInit();
             this.CoursesTabPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CoursesDataGridView)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // MainMenuStrip
             // 
             this.MainMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.FileToolStripMenuItem});
+            this.FileToolStripMenuItem,
+            this.kursToolStripMenuItem});
             this.MainMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.MainMenuStrip.Name = "MainMenuStrip";
             this.MainMenuStrip.Size = new System.Drawing.Size(838, 24);
@@ -84,6 +89,21 @@
             this.CloseToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.CloseToolStripMenuItem.Text = "Zakończ";
             this.CloseToolStripMenuItem.Click += new System.EventHandler(this.CloseToolStripMenuItem_Click);
+            // 
+            // kursToolStripMenuItem
+            // 
+            this.kursToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.stwórzNowyKursToolStripMenuItem});
+            this.kursToolStripMenuItem.Name = "kursToolStripMenuItem";
+            this.kursToolStripMenuItem.Size = new System.Drawing.Size(42, 20);
+            this.kursToolStripMenuItem.Text = "Kurs";
+            // 
+            // stwórzNowyKursToolStripMenuItem
+            // 
+            this.stwórzNowyKursToolStripMenuItem.Name = "stwórzNowyKursToolStripMenuItem";
+            this.stwórzNowyKursToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.stwórzNowyKursToolStripMenuItem.Text = "Stwórz nowy kurs";
+            this.stwórzNowyKursToolStripMenuItem.Click += new System.EventHandler(this.stwórzNowyKursToolStripMenuItem_Click);
             // 
             // MainTabControl
             // 
@@ -168,48 +188,6 @@
             this.UpcomingClassesDataGridView.Size = new System.Drawing.Size(546, 490);
             this.UpcomingClassesDataGridView.TabIndex = 0;
             // 
-            // CoursesTabPage
-            // 
-            this.CoursesTabPage.Controls.Add(this.dataGridView2);
-            this.CoursesTabPage.Controls.Add(this.flowLayoutPanel1);
-            this.CoursesTabPage.Location = new System.Drawing.Point(4, 32);
-            this.CoursesTabPage.Name = "CoursesTabPage";
-            this.CoursesTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.CoursesTabPage.Size = new System.Drawing.Size(830, 496);
-            this.CoursesTabPage.TabIndex = 1;
-            this.CoursesTabPage.Text = "Kursy";
-            this.CoursesTabPage.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(3, 3);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(824, 390);
-            this.dataGridView2.TabIndex = 1;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Controls.Add(this.AddCourseButton);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 393);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 25, 10, 0);
-            this.flowLayoutPanel1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(824, 100);
-            this.flowLayoutPanel1.TabIndex = 0;
-            // 
-            // ClientsTabPage
-            // 
-            this.ClientsTabPage.Location = new System.Drawing.Point(4, 32);
-            this.ClientsTabPage.Name = "ClientsTabPage";
-            this.ClientsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.ClientsTabPage.Size = new System.Drawing.Size(830, 496);
-            this.ClientsTabPage.TabIndex = 2;
-            this.ClientsTabPage.Text = "Klienci";
-            this.ClientsTabPage.UseVisualStyleBackColor = true;
-            // 
             // ClassesId
             // 
             this.ClassesId.DataPropertyName = "ClassesId";
@@ -247,14 +225,75 @@
             this.CourseId.ReadOnly = true;
             this.CourseId.Visible = false;
             // 
+            // CoursesTabPage
+            // 
+            this.CoursesTabPage.Controls.Add(this.CoursesDataGridView);
+            this.CoursesTabPage.Controls.Add(this.flowLayoutPanel1);
+            this.CoursesTabPage.Location = new System.Drawing.Point(4, 32);
+            this.CoursesTabPage.Name = "CoursesTabPage";
+            this.CoursesTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.CoursesTabPage.Size = new System.Drawing.Size(830, 496);
+            this.CoursesTabPage.TabIndex = 1;
+            this.CoursesTabPage.Text = "Kursy";
+            this.CoursesTabPage.UseVisualStyleBackColor = true;
+            // 
+            // CoursesDataGridView
+            // 
+            this.CoursesDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.CoursesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.CoursesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CourseNameColumn,
+            this.Type});
+            this.CoursesDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CoursesDataGridView.Location = new System.Drawing.Point(3, 3);
+            this.CoursesDataGridView.Name = "CoursesDataGridView";
+            this.CoursesDataGridView.Size = new System.Drawing.Size(824, 390);
+            this.CoursesDataGridView.TabIndex = 1;
+            // 
+            // CourseNameColumn
+            // 
+            this.CourseNameColumn.DataPropertyName = "Name";
+            this.CourseNameColumn.HeaderText = "Nazwa";
+            this.CourseNameColumn.Name = "CourseNameColumn";
+            this.CourseNameColumn.ReadOnly = true;
+            // 
+            // Type
+            // 
+            this.Type.DataPropertyName = "Type";
+            this.Type.HeaderText = "Typ";
+            this.Type.Name = "Type";
+            this.Type.ReadOnly = true;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.AddCourseButton);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 393);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 25, 10, 0);
+            this.flowLayoutPanel1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(824, 100);
+            this.flowLayoutPanel1.TabIndex = 0;
+            // 
             // AddCourseButton
             // 
             this.AddCourseButton.Location = new System.Drawing.Point(649, 28);
             this.AddCourseButton.Name = "AddCourseButton";
             this.AddCourseButton.Size = new System.Drawing.Size(162, 49);
             this.AddCourseButton.TabIndex = 0;
-            this.AddCourseButton.Text = "Dodaj nowy kurs";
+            this.AddCourseButton.Text = "Stwórz nowy kurs";
             this.AddCourseButton.UseVisualStyleBackColor = true;
+            this.AddCourseButton.Click += new System.EventHandler(this.AddCourseButton_Click);
+            // 
+            // ClientsTabPage
+            // 
+            this.ClientsTabPage.Location = new System.Drawing.Point(4, 32);
+            this.ClientsTabPage.Name = "ClientsTabPage";
+            this.ClientsTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.ClientsTabPage.Size = new System.Drawing.Size(830, 496);
+            this.ClientsTabPage.TabIndex = 2;
+            this.ClientsTabPage.Text = "Klienci";
+            this.ClientsTabPage.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -277,7 +316,7 @@
             this.UpcomingClassesSplitContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.UpcomingClassesDataGridView)).EndInit();
             this.CoursesTabPage.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CoursesDataGridView)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -295,7 +334,7 @@
         private System.Windows.Forms.SplitContainer UpcomingClassesSplitContainer;
         private System.Windows.Forms.ListBox UpcomingCoursesListBox;
         private System.Windows.Forms.DataGridView UpcomingClassesDataGridView;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView CoursesDataGridView;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.TabPage ClientsTabPage;
         private System.Windows.Forms.Label label1;
@@ -305,6 +344,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn EndDateTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn CourseId;
         private System.Windows.Forms.Button AddCourseButton;
+        private System.Windows.Forms.ToolStripMenuItem kursToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem stwórzNowyKursToolStripMenuItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CourseNameColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Type;
     }
 }
 
