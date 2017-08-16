@@ -37,6 +37,10 @@ namespace SewingCourses.Models
 
         public virtual ICollection<Student> Students { get; set; }
 
+        /// <summary>
+        ///     Get number of free spots left in classes
+        /// </summary>
+        /// <returns>Number of free spots</returns>
         public int GetSpotsLeft()
         {
             int totalSpots = this.Location.Capacity;
@@ -44,11 +48,20 @@ namespace SewingCourses.Models
             return totalSpots - takenSpots;
         }
 
+        /// <summary>
+        ///     Checks if course has free spots
+        /// </summary>
+        /// <returns>bool</returns>
         public bool HasFreeSpots()
         {
             return GetSpotsLeft() > 0;
         }
 
+
+        /// <summary>
+        ///     Generates attendance list
+        /// </summary>
+        /// <returns>String - attendance list</returns>
         public string generateAttendanceList()
         {
             String attendanceList = Course.Name + "\n";

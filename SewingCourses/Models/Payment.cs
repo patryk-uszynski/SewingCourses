@@ -13,5 +13,9 @@ namespace SewingCourses.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int PaymentId { get; set; }
+
+        public DateTime DateMade { get; set; }
+
+        public float Amount { get; set; }
     }
 }

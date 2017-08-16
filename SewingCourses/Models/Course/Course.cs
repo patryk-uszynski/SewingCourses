@@ -36,10 +36,5 @@ namespace SewingCourses.Models
         {
             return Name;
         }
-
-        public static void CreateCourse()
-        {
-            
-        }
     }
 }

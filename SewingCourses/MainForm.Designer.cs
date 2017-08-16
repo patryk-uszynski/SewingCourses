@@ -49,6 +49,7 @@
             this.TeacherName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CoursesTabPage = new System.Windows.Forms.TabPage();
             this.CoursesDataGridView = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CourseNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Actions = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -56,9 +57,9 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.AddCourseButton = new System.Windows.Forms.Button();
+            this.InfoLabel1 = new System.Windows.Forms.Label();
             this.ClientsTabPage = new System.Windows.Forms.TabPage();
             this.StudentsDataGridView = new System.Windows.Forms.DataGridView();
-            this.InfoLabel1 = new System.Windows.Forms.Label();
             this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BirthDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -272,6 +273,7 @@
             this.CoursesDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.CoursesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.CoursesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
             this.CourseNameColumn,
             this.Type,
             this.Actions});
@@ -286,6 +288,13 @@
             this.CoursesDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CoursesDataGridView_CellContentClick);
             this.CoursesDataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.CoursesDataGridView_CellEndEdit);
             this.CoursesDataGridView.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CoursesDataGridView_MouseDown);
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "CourseId";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
             // 
             // CourseNameColumn
             // 
@@ -344,6 +353,17 @@
             this.AddCourseButton.UseVisualStyleBackColor = true;
             this.AddCourseButton.Click += new System.EventHandler(this.AddCourseButton_Click);
             // 
+            // InfoLabel1
+            // 
+            this.InfoLabel1.AutoSize = true;
+            this.InfoLabel1.Location = new System.Drawing.Point(268, 25);
+            this.InfoLabel1.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.InfoLabel1.Name = "InfoLabel1";
+            this.InfoLabel1.Padding = new System.Windows.Forms.Padding(0, 20, 50, 0);
+            this.InfoLabel1.Size = new System.Drawing.Size(421, 33);
+            this.InfoLabel1.TabIndex = 1;
+            this.InfoLabel1.Text = "Usuwanie kursów jest możliwe po kliknięciu na nie prawym przyciskiem myszy";
+            // 
             // ClientsTabPage
             // 
             this.ClientsTabPage.Controls.Add(this.StudentsDataGridView);
@@ -368,17 +388,6 @@
             this.StudentsDataGridView.Name = "StudentsDataGridView";
             this.StudentsDataGridView.Size = new System.Drawing.Size(870, 496);
             this.StudentsDataGridView.TabIndex = 0;
-            // 
-            // InfoLabel1
-            // 
-            this.InfoLabel1.AutoSize = true;
-            this.InfoLabel1.Location = new System.Drawing.Point(268, 25);
-            this.InfoLabel1.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.InfoLabel1.Name = "InfoLabel1";
-            this.InfoLabel1.Padding = new System.Windows.Forms.Padding(0, 20, 50, 0);
-            this.InfoLabel1.Size = new System.Drawing.Size(421, 33);
-            this.InfoLabel1.TabIndex = 1;
-            this.InfoLabel1.Text = "Usuwanie kursów jest możliwe po kliknięciu na nie prawym przyciskiem myszy";
             // 
             // FirstName
             // 
@@ -461,14 +470,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn FreeSpots;
         private System.Windows.Forms.DataGridViewTextBoxColumn CourseId;
         private System.Windows.Forms.DataGridViewTextBoxColumn TeacherName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CourseNameColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Type;
-        private System.Windows.Forms.DataGridViewButtonColumn Actions;
         private System.Windows.Forms.DataGridView StudentsDataGridView;
         private System.Windows.Forms.Label InfoLabel1;
         private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
         private System.Windows.Forms.DataGridViewTextBoxColumn LastName;
         private System.Windows.Forms.DataGridViewTextBoxColumn BirthDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CourseNameColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Type;
+        private System.Windows.Forms.DataGridViewButtonColumn Actions;
     }
 }
 

@@ -67,13 +67,20 @@ namespace SewingCourses.Forms
                 MessageBox.Show("Pole Cena nie może być puste");
                 return null;
             }
+
+            float CoursePrice;
+            if(!float.TryParse(CoursePriceTextBox.Text, out CoursePrice))
+            {
+                MessageBox.Show("Wartość pola Cena jest nieprawidłowa");
+                return null;
+            }
             
             if (ProffesionalCourseRadioButton.Checked)
             {
                 ProfessionalCourse course = new ProfessionalCourse();
                 course.Qualifications = QualificationTextBox.Text;
                 course.Name = CourseNameTextBox.Text;
-                course.Price = float.Parse(CoursePriceTextBox.Text);
+                course.Price = CoursePrice;
                 context.Courses.Add(course);
                 context.SaveChanges();
 
@@ -85,7 +92,7 @@ namespace SewingCourses.Forms
                 course.StartDate = SemesterStartDateTimePicker.Value;
                 course.EndDate = SemesterEndDateTimePicker.Value;
                 course.Name = CourseNameTextBox.Text;
-                course.Price = float.Parse(CoursePriceTextBox.Text);
+                course.Price = CoursePrice;
                 context.Courses.Add(course);
                 context.SaveChanges();
 
@@ -95,7 +102,7 @@ namespace SewingCourses.Forms
             {
                 NormalCourse course = new NormalCourse();
                 course.Name = CourseNameTextBox.Text;
-                course.Price = float.Parse(CoursePriceTextBox.Text);
+                course.Price = CoursePrice;
                 context.Courses.Add(course);
                 context.SaveChanges();
 

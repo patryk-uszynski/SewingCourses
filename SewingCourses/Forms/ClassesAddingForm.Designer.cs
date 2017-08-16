@@ -175,7 +175,7 @@
             this.ClientSize = new System.Drawing.Size(484, 462);
             this.Controls.Add(this.MainFlowLayoutPanel);
             this.Controls.Add(this.ClassesAddingNavFlowLayoutPanel);
-            this.MinimumSize = new System.Drawing.Size(400, 400);
+            this.MinimumSize = new System.Drawing.Size(500, 500);
             this.Name = "ClassesAddingForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dodaj nowe zajęcia";

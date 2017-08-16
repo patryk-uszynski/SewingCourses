@@ -30,15 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CourseAddingForm));
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.NormalCourseRadioButton = new System.Windows.Forms.RadioButton();
-            this.ProffesionalCourseRadioButton = new System.Windows.Forms.RadioButton();
-            this.SemesterCourseRadioButton = new System.Windows.Forms.RadioButton();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.CancelAddCourseButton = new System.Windows.Forms.Button();
             this.CreateCourseButton = new System.Windows.Forms.Button();
             this.CreateCourseAndClassesButton = new System.Windows.Forms.Button();
+            this.CancelAddCourseButton = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.SemesterCourseRadioButton = new System.Windows.Forms.RadioButton();
+            this.ProffesionalCourseRadioButton = new System.Windows.Forms.RadioButton();
+            this.NormalCourseRadioButton = new System.Windows.Forms.RadioButton();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.QualificationLabel = new System.Windows.Forms.Label();
             this.QualificationTextBox = new System.Windows.Forms.TextBox();
@@ -74,6 +74,36 @@
             this.flowLayoutPanel2.Size = new System.Drawing.Size(636, 100);
             this.flowLayoutPanel2.TabIndex = 2;
             // 
+            // CreateCourseButton
+            // 
+            this.CreateCourseButton.Location = new System.Drawing.Point(508, 28);
+            this.CreateCourseButton.Name = "CreateCourseButton";
+            this.CreateCourseButton.Size = new System.Drawing.Size(113, 41);
+            this.CreateCourseButton.TabIndex = 4;
+            this.CreateCourseButton.Text = "Dodaj kurs";
+            this.CreateCourseButton.UseVisualStyleBackColor = true;
+            this.CreateCourseButton.Click += new System.EventHandler(this.CreateCourseButton_Click);
+            // 
+            // CreateCourseAndClassesButton
+            // 
+            this.CreateCourseAndClassesButton.Location = new System.Drawing.Point(311, 28);
+            this.CreateCourseAndClassesButton.Name = "CreateCourseAndClassesButton";
+            this.CreateCourseAndClassesButton.Size = new System.Drawing.Size(191, 41);
+            this.CreateCourseAndClassesButton.TabIndex = 5;
+            this.CreateCourseAndClassesButton.Text = "Dodaj kurs i stwórz zajęcia";
+            this.CreateCourseAndClassesButton.UseVisualStyleBackColor = true;
+            this.CreateCourseAndClassesButton.Click += new System.EventHandler(this.CreateCourseAndClassesButton_Click);
+            // 
+            // CancelAddCourseButton
+            // 
+            this.CancelAddCourseButton.Location = new System.Drawing.Point(189, 28);
+            this.CancelAddCourseButton.Name = "CancelAddCourseButton";
+            this.CancelAddCourseButton.Size = new System.Drawing.Size(116, 41);
+            this.CancelAddCourseButton.TabIndex = 3;
+            this.CancelAddCourseButton.Text = "Anuluj";
+            this.CancelAddCourseButton.UseVisualStyleBackColor = true;
+            this.CancelAddCourseButton.Click += new System.EventHandler(this.CancelAddCourseButton_Click);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -98,17 +128,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Typ kursu";
             // 
-            // NormalCourseRadioButton
+            // SemesterCourseRadioButton
             // 
-            this.NormalCourseRadioButton.AutoSize = true;
-            this.NormalCourseRadioButton.Checked = true;
-            this.NormalCourseRadioButton.Location = new System.Drawing.Point(9, 19);
-            this.NormalCourseRadioButton.Name = "NormalCourseRadioButton";
-            this.NormalCourseRadioButton.Size = new System.Drawing.Size(60, 17);
-            this.NormalCourseRadioButton.TabIndex = 0;
-            this.NormalCourseRadioButton.TabStop = true;
-            this.NormalCourseRadioButton.Text = "Zwykły";
-            this.NormalCourseRadioButton.UseVisualStyleBackColor = true;
+            this.SemesterCourseRadioButton.AutoSize = true;
+            this.SemesterCourseRadioButton.Location = new System.Drawing.Point(10, 66);
+            this.SemesterCourseRadioButton.Name = "SemesterCourseRadioButton";
+            this.SemesterCourseRadioButton.Size = new System.Drawing.Size(82, 17);
+            this.SemesterCourseRadioButton.TabIndex = 2;
+            this.SemesterCourseRadioButton.Text = "Semestralny";
+            this.SemesterCourseRadioButton.UseVisualStyleBackColor = true;
+            this.SemesterCourseRadioButton.CheckedChanged += new System.EventHandler(this.SemesterCourseRadioButton_CheckedChanged);
             // 
             // ProffesionalCourseRadioButton
             // 
@@ -121,16 +150,17 @@
             this.ProffesionalCourseRadioButton.UseVisualStyleBackColor = true;
             this.ProffesionalCourseRadioButton.CheckedChanged += new System.EventHandler(this.ProffesionalCourseRadioButton_CheckedChanged);
             // 
-            // SemesterCourseRadioButton
+            // NormalCourseRadioButton
             // 
-            this.SemesterCourseRadioButton.AutoSize = true;
-            this.SemesterCourseRadioButton.Location = new System.Drawing.Point(10, 66);
-            this.SemesterCourseRadioButton.Name = "SemesterCourseRadioButton";
-            this.SemesterCourseRadioButton.Size = new System.Drawing.Size(82, 17);
-            this.SemesterCourseRadioButton.TabIndex = 2;
-            this.SemesterCourseRadioButton.Text = "Semestralny";
-            this.SemesterCourseRadioButton.UseVisualStyleBackColor = true;
-            this.SemesterCourseRadioButton.CheckedChanged += new System.EventHandler(this.SemesterCourseRadioButton_CheckedChanged);
+            this.NormalCourseRadioButton.AutoSize = true;
+            this.NormalCourseRadioButton.Checked = true;
+            this.NormalCourseRadioButton.Location = new System.Drawing.Point(9, 19);
+            this.NormalCourseRadioButton.Name = "NormalCourseRadioButton";
+            this.NormalCourseRadioButton.Size = new System.Drawing.Size(60, 17);
+            this.NormalCourseRadioButton.TabIndex = 0;
+            this.NormalCourseRadioButton.TabStop = true;
+            this.NormalCourseRadioButton.Text = "Zwykły";
+            this.NormalCourseRadioButton.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel1
             // 
@@ -149,36 +179,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.12378F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(636, 317);
             this.tableLayoutPanel1.TabIndex = 3;
-            // 
-            // CancelAddCourseButton
-            // 
-            this.CancelAddCourseButton.Location = new System.Drawing.Point(189, 28);
-            this.CancelAddCourseButton.Name = "CancelAddCourseButton";
-            this.CancelAddCourseButton.Size = new System.Drawing.Size(116, 41);
-            this.CancelAddCourseButton.TabIndex = 3;
-            this.CancelAddCourseButton.Text = "Anuluj";
-            this.CancelAddCourseButton.UseVisualStyleBackColor = true;
-            this.CancelAddCourseButton.Click += new System.EventHandler(this.CancelAddCourseButton_Click);
-            // 
-            // CreateCourseButton
-            // 
-            this.CreateCourseButton.Location = new System.Drawing.Point(508, 28);
-            this.CreateCourseButton.Name = "CreateCourseButton";
-            this.CreateCourseButton.Size = new System.Drawing.Size(113, 41);
-            this.CreateCourseButton.TabIndex = 4;
-            this.CreateCourseButton.Text = "Dodaj kurs";
-            this.CreateCourseButton.UseVisualStyleBackColor = true;
-            this.CreateCourseButton.Click += new System.EventHandler(this.CreateCourseButton_Click);
-            // 
-            // CreateCourseAndClassesButton
-            // 
-            this.CreateCourseAndClassesButton.Location = new System.Drawing.Point(311, 28);
-            this.CreateCourseAndClassesButton.Name = "CreateCourseAndClassesButton";
-            this.CreateCourseAndClassesButton.Size = new System.Drawing.Size(191, 41);
-            this.CreateCourseAndClassesButton.TabIndex = 5;
-            this.CreateCourseAndClassesButton.Text = "Dodaj kurs i stwórz zajęcia";
-            this.CreateCourseAndClassesButton.UseVisualStyleBackColor = true;
-            this.CreateCourseAndClassesButton.Click += new System.EventHandler(this.CreateCourseAndClassesButton_Click);
             // 
             // flowLayoutPanel1
             // 
@@ -302,6 +302,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.flowLayoutPanel2);
+            this.MinimumSize = new System.Drawing.Size(652, 552);
             this.Name = "CourseAddingForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dodawanie nowego kursu";

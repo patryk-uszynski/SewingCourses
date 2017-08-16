@@ -10,8 +10,14 @@ using SewingCourses.Forms;
 
 namespace SewingCourses
 {
+    /// <summary>
+    ///     Application main form
+    /// </summary>
     public partial class MainForm : Form
     {
+        /// <summary>
+        ///     Databes context
+        /// </summary>
         private SewingCoursesDbContext context;
 
         public MainForm()
@@ -26,6 +32,9 @@ namespace SewingCourses
             DataEvents.DataChanged += (s, e) => ReloadData();
         }
 
+        /// <summary>
+        ///     Default controls config
+        /// </summary>
         private void ConfigureControls()
         {
             UpcomingCoursesListBox.ValueMember = "Name";
@@ -34,6 +43,9 @@ namespace SewingCourses
             StudentsDataGridView.AutoGenerateColumns = false;
         }
 
+        /// <summary>
+        ///     Reload data in application MainFrom
+        /// </summary>
         public void ReloadData()
         {
             context.Configuration.LazyLoadingEnabled = true;
@@ -48,32 +60,60 @@ namespace SewingCourses
             {
                 // MessageBox.Show("Brak nadchodzących zajęć dla tego kursu");
             }
+
             CoursesDataGridView.DataSource = context.Courses.ToList();
             StudentsDataGridView.DataSource = context.Persons.OfType<Student>().ToList();
         }
 
+        /// <summary>
+        ///     Close app nn main menu close item click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CloseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Close();
         }
 
+        /// <summary>
+        ///     Reload upcoming classes gridview on selected course change
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void UpcomingCoursesListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             UpcomingClassesDataGridView.DataSource = ((Course)UpcomingCoursesListBox.SelectedItem).Classes.ToList();
         }
 
+        /// <summary>
+        ///     On add course button click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void AddCourseButton_Click(object sender, EventArgs e)
         {
             CourseAddingForm form = new CourseAddingForm(context);
             form.Show();
         }
 
+
+        /// <summary>
+        ///     Create new course - event from toolstrip
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void stwórzNowyKursToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CourseAddingForm form = new CourseAddingForm(context);
             form.Show();
         }
 
+
+        /// <summary>
+        ///     Edit Course row
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CoursesDataGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             var selectedCourse = CoursesDataGridView.Rows[e.RowIndex].DataBoundItem as Course;
@@ -106,12 +146,17 @@ namespace SewingCourses
             DataEvents.RaiseDataChanged();
         }
 
-        // Delete item from CoursesDataGridView
+
+        /// <summary>
+        ///     Delete item from CoursesDataGridView
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
             var course = CoursesDataGridView.SelectedRows[0].DataBoundItem as Course;
 
-            if(course.Classes.Count() > 0)
+            if(course.Classes != null)
             {
                 MessageBox.Show("Nie można usunąć kursu zawierającego zajęcia!");
                 return;
@@ -122,6 +167,12 @@ namespace SewingCourses
             DataEvents.RaiseDataChanged();
         }
 
+
+        /// <summary>
+        ///     Add classes to course 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CoursesDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             var senderGrid = (DataGridView)sender;
@@ -133,6 +184,12 @@ namespace SewingCourses
             }
         }
 
+
+        /// <summary>
+        ///     Select course row on right click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CoursesDataGridView_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
